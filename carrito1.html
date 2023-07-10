@@ -71,8 +71,8 @@
   </div>
 
   <script>
-    //const URL = "http://127.0.0.1:5000/"
-    const URL = "https://pythongrupo10.pythonanywhere.com/"
+    // const URL = "http://127.0.0.1:5000/"
+   const URL = "https://pythongrupo10.pythonanywhere.com/"
 
     const app = Vue.createApp({
       data() {
@@ -126,6 +126,7 @@
             body: JSON.stringify({
               codigo: producto.codigo,
               cantidad: 1, // Restamos una unidad del carrito
+              
             }),
           })
             .then(response => response.json())

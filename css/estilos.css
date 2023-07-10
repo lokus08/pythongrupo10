@@ -1,0 +1,245 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("../img/helados.jpg");
+    background-size:100% auto;
+    background-repeat:no-repeat;
+    background-color: #cccccc;
+
+}
+/*
+.contenedor-centrado {
+    display:flex;
+    width: 100%;
+    justify-content: center;
+}
+
+p {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #f9f9f9;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    color: #007bff;
+}
+
+.img {
+    display:flex;
+    width: 100%;
+    justify-content: center;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid lightslategray;
+    border-radius: 5px;
+}
+
+table {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid lightslategray;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+button {
+    padding: 8px;
+    margin:4px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    padding: 8px;
+    margin:4px;
+    background-color: #fdab13;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 85%;
+}
+
+a:hover {
+    background-color: #cd7b00;
+    
+}
+*/
+#tabla-precios {
+    display:inline-block;
+    width:100%;
+    margin-top:50px
+   }
+   
+   /*Columnas*/
+   
+   .precio-col {
+    display:inline-block;
+    background-color:#f3f3f3;
+    width:100%;
+    max-width:500px;
+    border-radius:10px;
+    margin-bottom:50px;
+    box-shadow: 0px 2px 5px #ddd
+   }
+   
+   @media screen and (min-width:768px) {
+    .precio-col {
+    width:32%;
+    float:left;
+    margin-right:2%
+    }
+    
+    .precio-col:last-child {
+    margin-right:0
+    }
+   }
+   
+   /*Headers*/
+   
+   .precio-col-header {
+    background-color:#333;
+    padding:20px;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px
+   }
+   
+   .precio-col:nth-child(2) .precio-col-header {
+    background-color:#dd9933
+   }
+   
+   .precio-col-header h3 {
+    text-align:center;
+    font-size:30px;
+    font-weight:600;
+    margin-bottom:0
+   }
+   .precio-col-header img {
+    width:75%;
+   }
+   .precio-col-header p {
+    text-align:center;
+    color:#f3f3f3;
+    font-size:14px;
+    margin-bottom:0
+   }
+   
+   /*Características*/
+   
+   .precio-col-features {
+    padding: 0 20px 20px 20px
+   }
+   
+   .precio-col-features p {
+    padding:20px 0;
+    margin:0;
+    text-align:center;
+    border-top:1px solid #ddd
+   }
+   
+   .precio-col-features p:first-child,
+   .precio-col-features p:last-child {
+    border-top:none
+   }
+   
+   /*Comprar*/
+   
+   .precio-col-comprar {
+    padding:10px;
+    max-width:250px;
+    text-align:center;
+    background-color:#dd9933;
+    margin: 0 auto 20px;
+    border-radius:10px;
+    border: 2px solid #dd9933;
+    transition: all 0.3s
+   }
+   
+   .precio-col-comprar a {
+    color:#f3f3f3;
+    padding:10px;
+    font-size:20px;
+    text-transform:uppercase;
+    transition: all 0.3s
+   }
+   
+   .precio-col-comprar:hover {
+    background-color:#f3f3f3;
+    transition: all 0.3s
+   }
+   
+   .precio-col-comprar:hover a {
+    color:#dd9933;
+    transition: all 0.3s
+   }
+   #navegador ul{
+    list-style-type: none;
+    text-align: right;
+ }
+ #navegador li{
+    display:inline;
+
+    text-align:right;
+    margin: 0 10px 0 0;
+ }
+ #navegador li a {
+    padding: 2px 7px 2px 7px;
+    color:#efefef;
+    border-radius:10px;
+    background-color: #be910c;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    text-transform:uppercase
+ }
+ #navegador li a:hover{
+    color:#dd9933;
+    text-transform:uppercase;
+    transition: all 0.3s
+    
+    
+ }
