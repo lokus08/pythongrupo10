@@ -11,10 +11,11 @@
 
 <body>
   <div id="app">
-    <h1>Carrito de compras</h1>
+    <h1>Selecciona tus 3 sabores</h1>
     <div class="img"><img src="img/logo_codo.png" alt="codoacodo" width="100px"></div>
-    <h3>Codo a Codo 2023</h3>
-    <table>
+    <h3 id="valor-variable">Cantidad de sabores elegidos: 0</h3>
+
+    <table id="tabla_sabores">
       <thead>
         <tr>
           <th>Código</th>
@@ -31,8 +32,8 @@
           <td align="right">{{ producto.cantidad }}</td>
           <td align="right">&nbsp; &nbsp; {{ producto.precio }}</td>
           <td>
-            <button @click="agregarAlCarrito(producto)">&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;</button>
-            <button @click="restarDelCarrito(producto)">&nbsp;&nbsp;<b>-</b>&nbsp;&nbsp;</button>
+            <button @click="agregarAlCarrito(producto)">&nbsp;&nbsp;<b>{{ producto.descripcion }}</b>&nbsp;&nbsp;</button>
+            <button @click="restarDelCarrito(producto)" class="boton-rojo">&nbsp;&nbsp;<b>Quitar sabor</b>&nbsp;&nbsp;</button>
           </td>
         </tr>
       </tbody>
@@ -61,9 +62,10 @@
     </div>
 
     <div v-if="!mostrarCarrito" class="contenedor-centrado">
-      <button @click="obtenerCarrito">Mostrar carrito</button>
+      <button @click="nuevo_pedido">Imprimir pedido</a>
+      
     </div>
-
+    
     <div class="contenedor-centrado">
       <a href="index.html">Menu principal</a>
     </div>
@@ -71,9 +73,10 @@
   </div>
 
   <script>
-    // const URL = "http://127.0.0.1:5000/"
-   const URL = "https://pythongrupo10.pythonanywhere.com/"
-
+    //const URL = "http://127.0.0.1:5000/"
+    const URL = "https://mdromero73.pythonanywhere.com/"
+    var variable = 0;
+    
     const app = Vue.createApp({
       data() {
         return {
@@ -86,6 +89,7 @@
         this.obtenerProductos()
       },
       methods: {
+        
         obtenerProductos() {
           fetch(URL + 'productos')
             .then(response => response.json())
@@ -98,6 +102,15 @@
             })
         },
         agregarAlCarrito(producto) {
+          if (variable < 3) {
+              variable++;
+              
+            }
+            if (variable === 3) {
+              alert("Genial!! Ya elegiste los 3 sabores. Por favor imprimi tu pedido.");
+            }
+            document.getElementById("valor-variable").textContent = "Cantidad de sabores elegidos: " + variable;
+
           fetch(URL + 'carrito', {
             method: 'POST',
             headers: {
@@ -106,33 +119,33 @@
             body: JSON.stringify({
               codigo: producto.codigo,
               cantidad: 1, // Agregamos una unidad al carrito
+            
             }),
           })
             .then(response => response.json())
-            .then(data => {
-              alert(data.message)
-            })
+
             .catch(error => {
               console.error('Error al agregar el producto al carrito:', error)
               alert('Error al agregar el producto al carrito.')
             })
         },
         restarDelCarrito(producto) {
-          fetch(URL + 'carrito', {
+          if (variable > 0) {
+              variable--;
+            }
+            document.getElementById("valor-variable").textContent = "Cantidad de sabores elegidos: " + variable;
+            fetch(URL + 'carrito', {
             method: 'DELETE',
             headers: {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
               codigo: producto.codigo,
-              cantidad: 1, // Restamos una unidad del carrito
-              
+              cantidad: 1,
             }),
           })
             .then(response => response.json())
-            .then(data => {
-              alert(data.message)
-            })
+
             .catch(error => {
               console.error('Error al restar el producto del carrito:', error)
               alert('Error al restar el producto del carrito.')
@@ -150,9 +163,15 @@
               alert('Error al obtener el carrito.')
             })
         },
+        nuevo_pedido(){
+          location.reload();
+        }
+        
       },
     })
     app.mount('#app')
+
+    
   </script>
 </body>
 

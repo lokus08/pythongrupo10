@@ -122,7 +122,7 @@ class Carrito:
         producto = inventario.consultar_producto(codigo)
         if producto is None:
             return jsonify({'message': 'El producto no existe.'}), 404
-        if producto.cantidad < 1:
+        if producto.cantidad < cantidad:
             return jsonify({'message': 'Cantidad en stock insuficiente.'}), 400
 
         for item in self.items:
